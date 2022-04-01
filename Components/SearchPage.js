@@ -1,49 +1,29 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import CourseCart from './CourseCart';
-import { useScrollPosition } from "../Hook/UseScrollPosition";
 
 function SearchPage() {
   const scrollRef = useRef(null);
-  // const [curPos, setCurPos] = useState(null);
-  // const [prevPos, setPrevPos] = useState(null);
   let oldScroll = 0;
   let newScroll = 0;
 
-  // function handleScroll() {
-  //   if (curPos > prevPos) {
-  //     window.scrollBy(0, 550);
-  //     console.log("yes1");
-  //     setCurPos(null);
-  //     setPrevPos(null);
-  //   }
-  //   else if (prevPos > curPos) {
-  //     window.scrollBy(0, -550);
-  //     console.log("yes2");
-  //     setCurPos(null);
-  //     setPrevPos(null);
-  //   }
 
-  //   console.log("No");
-  // }
-
-
-  // console.log(curPos, prevPos);
+  // Scrolling up and down on 'scroll' event
   const handleScroll = () => {
     newScroll = window.pageYOffset;
+
     if (oldScroll < newScroll) {
       console.log("Up");
-      window.scrollBy(0, 600);
-      // oldScroll = 0;
-      // newScroll = 0;
+      window.scrollBy(0, 600);                  // 600px in y Up
     }
     else if (oldScroll > newScroll) {
       console.log("Down");
-      window.scrollBy(0, -600);
+      window.scrollBy(0, -550);                 // 600px in y Down
     }
 
     oldScroll = newScroll;
   }
 
+  // throttled handleScroll so that it don't keep scrolling
   const throttle = (fn, limit) => {
     let flag = true;
 
@@ -59,25 +39,19 @@ function SearchPage() {
     }
   }
 
-  const betterExpensive = throttle(handleScroll, 2000);
+  const throttledHandleScroll = throttle(handleScroll, 2000);
 
-
+  // on which scrolling will start
   useEffect(() => {
-    window.addEventListener('scroll', betterExpensive)
+    window.addEventListener('scroll', throttledHandleScroll)
 
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [newScroll, oldScroll])
+    return () => window.removeEventListener('scroll', throttledHandleScroll);
+  }, [newScroll, oldScroll, throttledHandleScroll])
 
-  // useScrollPosition(({ prevPos, currPos }) => {
-  //   const isUp = currPos.y < prevPos.y
-  //   setCurPos(currPos.y);
-  //   setPrevPos(prevPos.y);
-  //   handleScroll();
-  // }, [curPos, prevPos], null, true, 500)
 
   return (
     <main ref={scrollRef}
-      className="flex snap-y snap-mandatory overflow-y-auto w-full max-w-[calc(1440px-250px)] items-center justify-evenly gap-y-[6rem] gap-x-4 py-12 lg:justify-around flex-wrap mx-auto">
+      className="flex snap-y snap-mandatory overflow-y-auto w-full max-w-[calc(1440px-250px)] items-center justify-evenly gap-y-[6rem] gap-x-4 py-11 lg:justify-around flex-wrap mx-auto">
       {Array.from(Array(9), (_, index) => index + 1).map((index) => (
         <CourseCart
           key={index}
