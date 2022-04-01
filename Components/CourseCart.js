@@ -12,13 +12,13 @@ function CourseCart({
   return (
     <Link href={href} passHref>
       <div className="flex rounded-md transition-all ease-in-out snap-center">
-        <div className="w-[320px] overflow-hidden rounded-2xl  pb-[22px] font-poppins shadow-xl ring-2 ring-[#FC4D6D] ring-opacity-10">
+        <div className="w-[350px] overflow-hidden rounded-2xl  pb-[20px] font-poppins shadow-xl ring-2 ring-[#FC4D6D] ring-opacity-10">
           <CoverSection />
           <TutorDetails
             space={'-mt-[1.8rem] ml-[105px] '}
             imgPosition={'-top-[3rem] left-[-5.5rem]'}
           />
-          <div className="flex flex-col items-center gap-3 p-4 ">
+          <div className="flex flex-col items-center gap-3 py-4 px-2">
             <Language />
             <ActiveFinishedRatingBox />
             <Description />
@@ -32,7 +32,7 @@ function CourseCart({
 
   function CoverSection() {
     return (
-      <div className="relative  overflow-hidden rounded-t-2xl rounded-br-[30px] h-[200px]">
+      <div className="relative  overflow-hidden rounded-t-2xl rounded-br-[30px] h-[210px]">
         <Image
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/RQAAuEB4mUJ9Y0AAAAASUVORK5CYII="
@@ -40,7 +40,7 @@ function CourseCart({
           src={coverImg}
           height={191}
           width={383}
-          alt=""
+          alt="user"
         />
         <div className="transparent-box absolute top-0 rounded-br-3xl px-[23px] py-[10px] text-center font-poppins text-[12px] font-bold uppercase text-white ">
           {topRightTitle}
@@ -51,7 +51,7 @@ function CourseCart({
               src="/Images/CourseCart/Bookmark.png"
               layout='fill'
               objectFit='contain'
-              alt=""
+              alt="bookmark"
             />
           </div>
         </div>
@@ -65,7 +65,7 @@ function CourseCart({
         <div
           className={` absolute  ${imgPosition}  mr-4 flex h-[75px] w-[75px] items-center justify-center rounded-full ring-2 ring-white`}
         >
-          <Image src={tutorImg} alt="" height={75} width={75} />
+          <Image src={tutorImg} alt="tutor" height={75} width={75} />
         </div>
         <div className="flex gap-[8px]   ">
           <span className="text-[14px] font-semibold ">{tutorName}</span>
@@ -75,7 +75,7 @@ function CourseCart({
               src="/Images/CourseCart/verify-icon.svg"
               height={13}
               width={13}
-              alt=""
+              alt="icon"
             />
           </div>
           <div>
@@ -84,7 +84,7 @@ function CourseCart({
               src={countryLogo}
               width={14}
               height={15}
-              alt=""
+              alt="country"
             />
           </div>
         </div>
@@ -95,14 +95,14 @@ function CourseCart({
   function Language({ space }) {
     return (
       <div
-        className={`text-[11px] font-medium text-[#474747] ${space}  mb-[18px] flex flex-col gap-[12.55px]`}
+        className={`text-[11px] font-medium text-[#474747] ${space} w-full items-start pl-3 mb-[18px] flex flex-col gap-[12.55px]`}
       >
         <span className="flex items-center gap-[15px]">
           <Image
             src="/Images/CourseCart/topper-cap.svg"
             width={22}
             height={18}
-            alt=""
+            alt="cap"
           />
           <span>English, Geography, +3</span>
         </span>
@@ -111,7 +111,7 @@ function CourseCart({
             src="/Images/CourseCart/voice.svg"
             width={24}
             height={15}
-            alt=""
+            alt="voice"
           />
           <span>English (Native), Hindi (Conversational) +1</span>
         </span>
@@ -121,7 +121,7 @@ function CourseCart({
 
   function ActiveFinishedRatingBox({ space }) {
     return (
-      <div className={`flex   ${space} justify-between gap-2  font-bold text-[13px] mb-2`}>
+      <div className={`flex   ${space} justify-between gap-2  font-bold text-[13px] mb-2 w-full px-3`}>
         <TransparentBox title={'Active '} title2={'Students'} num="3" />
         <TransparentBox title={'Session '} title2={'finished'} num="45" />
         <TransparentBox title={'4.5'} title2={'Rating'} img={true} num="172" />
@@ -131,7 +131,7 @@ function CourseCart({
       return (
         <div
           className=" transparent-box    flex flex-col items-center justify-center
-          rounded-xl px-4 text-center font-monts text-[10px] capitalize"
+          rounded-xl px-4 text-center font-monts text-[11px] capitalize w-[100px] h-[54px]"
         >
           <div className="text-[#474747]">
             <span className="flex items-center justify-center  leading-[16px]">
@@ -168,11 +168,11 @@ function CourseCart({
       <div className={`z-20 relative flex justify-center ${space} cursor-pointer`}>
         <Link href={'/'}>
           <>
-            <a className="inline-block rounded-full backdrop-blur-md px-6 py-2 text-[14px] font-[600] text-[#FC4D6D] transition duration-150 ease-in-out hover:bg-[#FC4D6D] hover:text-white ">
+            <a className="w-[220px] text-center inline-block rounded-full backdrop-blur-md drop-shadow-lg shadow-lg px-6 py-2 text-[14px] font-[600] text-[#FC4D6D] transition duration-150 ease-in-out hover:bg-[#FC4D6D] hover:text-white ">
               Book Trial | $20/hr
             </a>
             <div className="-z-20">
-              <div className="w-[15px] h-[15px] gradientCircle left-[56px] top-[-4px] " />
+              <div className="w-[15px] h-[15px] gradientCircle left-[75px] top-[-4px] " />
               <div className="w-[35px] h-[35px] gradientCircle -bottom-2 right-[-7px]" />
               <div className="w-[27px] h-[27px] gradientCircle top-[1rem] left-[-2px]" />
             </div>
@@ -194,7 +194,7 @@ function CourseCart({
                 src="/Images/CourseCart/eye.svg"
                 height={12}
                 width={19}
-                alt=""
+                alt="eye"
               />
             </span>
             <span className="ml-[6px]">QuickView Details</span>
