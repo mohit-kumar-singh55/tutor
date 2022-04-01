@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import Link from 'next/link';
+import Image from 'next/image';
 
 function CourseCart({
   coverImg,
@@ -7,27 +7,24 @@ function CourseCart({
   tutorName,
   tutorImg,
   countryLogo,
-  href
 }) {
   return (
-    <Link href={href} passHref>
-      <div className="flex rounded-md transition-all ease-in-out snap-center">
-        <div className="w-[350px] overflow-hidden rounded-2xl  pb-[20px] font-poppins shadow-xl ring-2 ring-[#FC4D6D] ring-opacity-10">
-          <CoverSection />
-          <TutorDetails
-            space={'-mt-[1.8rem] ml-[105px] '}
-            imgPosition={'-top-[3rem] left-[-5.5rem]'}
-          />
-          <div className="flex flex-col items-center gap-3 py-4 px-2">
-            <Language />
-            <ActiveFinishedRatingBox />
-            <Description />
-            <BookTrialBtn space={'my-4'} />
-          </div>
-          <ViewAndChat space={'px-4'} />
+    <div className="flex rounded-md transition-all ease-in-out snap-center">
+      <div className="w-[350px] overflow-hidden rounded-2xl  pb-[20px] font-poppins shadow-xl ring-2 ring-[#FC4D6D] ring-opacity-10">
+        <CoverSection />
+        <TutorDetails
+          space={'-mt-[1.8rem] ml-[105px] '}
+          imgPosition={'-top-[3rem] left-[-5.5rem]'}
+        />
+        <div className="flex flex-col items-center gap-3 py-4 px-2">
+          <Language />
+          <ActiveFinishedRatingBox />
+          <Description />
+          <BookTrialBtn space={'my-4'} />
         </div>
+        <ViewAndChat space={'px-4'} />
       </div>
-    </Link>
+    </div>
   )
 
   function CoverSection() {
