@@ -17,7 +17,7 @@ function SearchPage() {
     }
     else if (oldScroll > newScroll) {
       console.log("Down");
-      window.scrollBy(0, -550);                 // 600px in y Down
+      window.scrollBy(0, -550);                 // 550px in y Down
     }
 
     oldScroll = newScroll;
